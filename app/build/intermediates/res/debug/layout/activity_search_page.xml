@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".SearchPage"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/headerImageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ebayw" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="360dp"
+        android:layout_below="@+id/headerImageView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/searchFormLayout">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Keywords"
+            android:id="@+id/keywordStatic"
+            android:layout_alignBottom="@+id/keywordField"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp" />
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/keywordField"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:editable="true" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Price from"
+            android:id="@+id/pricestartStatic"
+            android:layout_below="@+id/keywordStatic"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/pricestartField"
+            android:layout_alignBottom="@+id/pricestartStatic"
+            android:layout_alignLeft="@+id/keywordField"
+            android:layout_alignStart="@+id/keywordField"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Price to"
+            android:id="@+id/pricetoStatic"
+            android:layout_below="@+id/pricestartStatic"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/pricetoField"
+            android:layout_alignBottom="@+id/pricetoStatic"
+            android:layout_alignLeft="@+id/pricestartField"
+            android:layout_alignStart="@+id/pricestartField"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Sort by"
+            android:id="@+id/sortByStatic"
+            android:layout_below="@+id/pricetoStatic"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sortBySpinner"
+            android:entries="@array/sortOptions"
+            android:layout_alignTop="@+id/sortByStatic"
+            android:layout_alignLeft="@+id/pricetoField"
+            android:layout_alignStart="@+id/pricetoField"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/searchButton"
+            android:layout_below="@+id/sortBySpinner"
+            android:layout_alignLeft="@+id/sortByStatic"
+            android:layout_alignStart="@+id/sortByStatic"
+            android:layout_marginTop="20dp"
+            android:background="#0F599E"
+            android:textColor="#ffffffff"
+            android:onClick="performSearch" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:id="@+id/clearButton"
+            android:layout_alignBottom="@+id/searchButton"
+            android:layout_toRightOf="@+id/searchButton"
+            android:layout_toEndOf="@+id/searchButton"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="#ffd9d9d9"
+            android:onClick="clearForm" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+<!-- From: file:/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/src/main/res/layout/activity_search_page.xml -->

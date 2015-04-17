@@ -1,0 +1,355 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.akhil.ebayshopping.Results"
+    android:background="#ffffffff">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/resultHeader" />
+
+    <ScrollView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_marginTop="40dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#fff6f6f6"
+                android:id="@+id/item0">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/image0"
+                        android:clickable="true"
+                        android:onClick="openWebPage" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Large Text"
+                            android:id="@+id/title0"
+                            android:textColor="#ff0064c8"
+                            android:clickable="true"
+                            android:onClick="gotDetails" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/price0"
+                            android:textIsSelectable="false" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="{&quot;basicInfo&quot;:{&quot;title&quot;:&quot;Harry Potter Hermione Granger Rotating Time Turner Necklace Gold Hourglass OR&quot;,&quot;viewItemURL&quot;:&quot;http:\/\/www.ebay.com\/itm\/Harry-Potter-Hermione-Granger-Rotating-Time-Turner-Necklace-Gold-Hourglass-\/121536470705?pt=LH_DefaultDomain_0&quot;,&quot;galleryURL&quot;:&quot;http:\/\/thumbs2.ebaystatic.com\/m\/mzWs47FBHq-VNpH21y5G2jQ\/140.jpg&quot;,&quot;pictureURLSuperSize&quot;:&quot;http:\/\/i.ebayimg.com\/00\/s\/NTAwWDUwMA==\/z\/4qsAAOSwECZUqgXr\/$_12.JPG&quot;,&quot;convertedCurrentPrice&quot;:4.59,&quot;shippingServiceCost&quot;:0,&quot;conditionDisplayName&quot;:&quot;New&quot;,&quot;listingType&quot;:&quot;FixedPrice&quot;,&quot;location&quot;:&quot;USA&quot;,&quot;categoryName&quot;:&quot;Harry Potter&quot;,&quot;topRatedListing&quot;:&quot;false&quot;},&quot;sellerInfo&quot;:{&quot;sellerUserName&quot;:&quot;orighthere&quot;,&quot;feedbackScore&quot;:6775,&quot;positiveFeedbackPercent&quot;:98.6,&quot;topRatedSeller&quot;:&quot;false&quot;,&quot;feedbackRatingStar&quot;:&quot;Green&quot;,&quot;sellerStoreName&quot;:&quot;orighthere&quot;,&quot;sellerStoreURL&quot;:&quot;http:\/\/stores.ebay.com\/orighthere&quot;},&quot;shippingInfo&quot;:{&quot;shippingType&quot;:&quot;Free&quot;,&quot;shipToLocations&quot;:[&quot;US&quot;],&quot;expeditedShipping&quot;:&quot;false&quot;,&quot;oneDayShippingAvailable&quot;:&quot;false&quot;,&quot;returnsAccepted&quot;:&quot;true&quot;,&quot;handlingTime&quot;:1}}"
+                            android:id="@+id/hidden0"
+                            android:visibility="gone" />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/item1"
+                android:layout_marginTop="10dp"
+                android:background="#fff6f6f6">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/image1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Large Text"
+                            android:id="@+id/title1"
+                            android:textColor="#ff0064c8"
+                            android:nestedScrollingEnabled="false"
+                            android:clickable="true"
+                            android:onClick="gotDetails" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/price1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="{&quot;basicInfo&quot;:{&quot;title&quot;:&quot;Harry Potter Hermione Granger Rotating Time Turner Necklace Gold Hourglass OR&quot;,&quot;viewItemURL&quot;:&quot;http:\/\/www.ebay.com\/itm\/Harry-Potter-Hermione-Granger-Rotating-Time-Turner-Necklace-Gold-Hourglass-\/121536470705?pt=LH_DefaultDomain_0&quot;,&quot;galleryURL&quot;:&quot;http:\/\/thumbs2.ebaystatic.com\/m\/mzWs47FBHq-VNpH21y5G2jQ\/140.jpg&quot;,&quot;pictureURLSuperSize&quot;:&quot;http:\/\/i.ebayimg.com\/00\/s\/NTAwWDUwMA==\/z\/4qsAAOSwECZUqgXr\/$_12.JPG&quot;,&quot;convertedCurrentPrice&quot;:4.59,&quot;shippingServiceCost&quot;:0,&quot;conditionDisplayName&quot;:&quot;New&quot;,&quot;listingType&quot;:&quot;FixedPrice&quot;,&quot;location&quot;:&quot;USA&quot;,&quot;categoryName&quot;:&quot;Harry Potter&quot;,&quot;topRatedListing&quot;:&quot;false&quot;},&quot;sellerInfo&quot;:{&quot;sellerUserName&quot;:&quot;orighthere&quot;,&quot;feedbackScore&quot;:6775,&quot;positiveFeedbackPercent&quot;:98.6,&quot;topRatedSeller&quot;:&quot;false&quot;,&quot;feedbackRatingStar&quot;:&quot;Green&quot;,&quot;sellerStoreName&quot;:&quot;orighthere&quot;,&quot;sellerStoreURL&quot;:&quot;http:\/\/stores.ebay.com\/orighthere&quot;},&quot;shippingInfo&quot;:{&quot;shippingType&quot;:&quot;Free&quot;,&quot;shipToLocations&quot;:[&quot;US&quot;],&quot;expeditedShipping&quot;:&quot;false&quot;,&quot;oneDayShippingAvailable&quot;:&quot;false&quot;,&quot;returnsAccepted&quot;:&quot;true&quot;,&quot;handlingTime&quot;:1}}"
+                            android:id="@+id/hidden1"
+                            android:visibility="gone" />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#fff6f6f6"
+                android:id="@+id/item2"
+                android:layout_marginTop="10dp" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/image2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Large Text"
+                            android:id="@+id/title2"
+                            android:textColor="#ff0064c8"
+                            android:onClick="gotDetails"
+                            android:clickable="true" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/price2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="{&quot;basicInfo&quot;:{&quot;title&quot;:&quot;Harry Potter Hermione Granger Rotating Time Turner Necklace Gold Hourglass OR&quot;,&quot;viewItemURL&quot;:&quot;http:\/\/www.ebay.com\/itm\/Harry-Potter-Hermione-Granger-Rotating-Time-Turner-Necklace-Gold-Hourglass-\/121536470705?pt=LH_DefaultDomain_0&quot;,&quot;galleryURL&quot;:&quot;http:\/\/thumbs2.ebaystatic.com\/m\/mzWs47FBHq-VNpH21y5G2jQ\/140.jpg&quot;,&quot;pictureURLSuperSize&quot;:&quot;http:\/\/i.ebayimg.com\/00\/s\/NTAwWDUwMA==\/z\/4qsAAOSwECZUqgXr\/$_12.JPG&quot;,&quot;convertedCurrentPrice&quot;:4.59,&quot;shippingServiceCost&quot;:0,&quot;conditionDisplayName&quot;:&quot;New&quot;,&quot;listingType&quot;:&quot;FixedPrice&quot;,&quot;location&quot;:&quot;USA&quot;,&quot;categoryName&quot;:&quot;Harry Potter&quot;,&quot;topRatedListing&quot;:&quot;false&quot;},&quot;sellerInfo&quot;:{&quot;sellerUserName&quot;:&quot;orighthere&quot;,&quot;feedbackScore&quot;:6775,&quot;positiveFeedbackPercent&quot;:98.6,&quot;topRatedSeller&quot;:&quot;false&quot;,&quot;feedbackRatingStar&quot;:&quot;Green&quot;,&quot;sellerStoreName&quot;:&quot;orighthere&quot;,&quot;sellerStoreURL&quot;:&quot;http:\/\/stores.ebay.com\/orighthere&quot;},&quot;shippingInfo&quot;:{&quot;shippingType&quot;:&quot;Free&quot;,&quot;shipToLocations&quot;:[&quot;US&quot;],&quot;expeditedShipping&quot;:&quot;false&quot;,&quot;oneDayShippingAvailable&quot;:&quot;false&quot;,&quot;returnsAccepted&quot;:&quot;true&quot;,&quot;handlingTime&quot;:1}}"
+                            android:id="@+id/hidden2"
+                            android:visibility="gone" />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/item3"
+                android:layout_marginTop="10dp"
+                android:background="#fff6f6f6" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/image3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Large Text"
+                            android:id="@+id/title3"
+                            android:textColor="#ff0064c8"
+                            android:onClick="gotDetails"
+                            android:clickable="true" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/price3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="{&quot;basicInfo&quot;:{&quot;title&quot;:&quot;Harry Potter Hermione Granger Rotating Time Turner Necklace Gold Hourglass OR&quot;,&quot;viewItemURL&quot;:&quot;http:\/\/www.ebay.com\/itm\/Harry-Potter-Hermione-Granger-Rotating-Time-Turner-Necklace-Gold-Hourglass-\/121536470705?pt=LH_DefaultDomain_0&quot;,&quot;galleryURL&quot;:&quot;http:\/\/thumbs2.ebaystatic.com\/m\/mzWs47FBHq-VNpH21y5G2jQ\/140.jpg&quot;,&quot;pictureURLSuperSize&quot;:&quot;http:\/\/i.ebayimg.com\/00\/s\/NTAwWDUwMA==\/z\/4qsAAOSwECZUqgXr\/$_12.JPG&quot;,&quot;convertedCurrentPrice&quot;:4.59,&quot;shippingServiceCost&quot;:0,&quot;conditionDisplayName&quot;:&quot;New&quot;,&quot;listingType&quot;:&quot;FixedPrice&quot;,&quot;location&quot;:&quot;USA&quot;,&quot;categoryName&quot;:&quot;Harry Potter&quot;,&quot;topRatedListing&quot;:&quot;false&quot;},&quot;sellerInfo&quot;:{&quot;sellerUserName&quot;:&quot;orighthere&quot;,&quot;feedbackScore&quot;:6775,&quot;positiveFeedbackPercent&quot;:98.6,&quot;topRatedSeller&quot;:&quot;false&quot;,&quot;feedbackRatingStar&quot;:&quot;Green&quot;,&quot;sellerStoreName&quot;:&quot;orighthere&quot;,&quot;sellerStoreURL&quot;:&quot;http:\/\/stores.ebay.com\/orighthere&quot;},&quot;shippingInfo&quot;:{&quot;shippingType&quot;:&quot;Free&quot;,&quot;shipToLocations&quot;:[&quot;US&quot;],&quot;expeditedShipping&quot;:&quot;false&quot;,&quot;oneDayShippingAvailable&quot;:&quot;false&quot;,&quot;returnsAccepted&quot;:&quot;true&quot;,&quot;handlingTime&quot;:1}}"
+                            android:id="@+id/hidden3"
+                            android:visibility="gone" />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#fff6f6f6"
+                android:id="@+id/item4"
+                android:layout_marginTop="10dp" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/image4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Large Text"
+                            android:id="@+id/title4"
+                            android:textColor="#ff0064c8"
+                            android:onClick="gotDetails"
+                            android:clickable="true" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/price4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="{&quot;basicInfo&quot;:{&quot;title&quot;:&quot;Harry Potter Hermione Granger Rotating Time Turner Necklace Gold Hourglass OR&quot;,&quot;viewItemURL&quot;:&quot;http:\/\/www.ebay.com\/itm\/Harry-Potter-Hermione-Granger-Rotating-Time-Turner-Necklace-Gold-Hourglass-\/121536470705?pt=LH_DefaultDomain_0&quot;,&quot;galleryURL&quot;:&quot;http:\/\/thumbs2.ebaystatic.com\/m\/mzWs47FBHq-VNpH21y5G2jQ\/140.jpg&quot;,&quot;pictureURLSuperSize&quot;:&quot;http:\/\/i.ebayimg.com\/00\/s\/NTAwWDUwMA==\/z\/4qsAAOSwECZUqgXr\/$_12.JPG&quot;,&quot;convertedCurrentPrice&quot;:4.59,&quot;shippingServiceCost&quot;:0,&quot;conditionDisplayName&quot;:&quot;New&quot;,&quot;listingType&quot;:&quot;FixedPrice&quot;,&quot;location&quot;:&quot;USA&quot;,&quot;categoryName&quot;:&quot;Harry Potter&quot;,&quot;topRatedListing&quot;:&quot;false&quot;},&quot;sellerInfo&quot;:{&quot;sellerUserName&quot;:&quot;orighthere&quot;,&quot;feedbackScore&quot;:6775,&quot;positiveFeedbackPercent&quot;:98.6,&quot;topRatedSeller&quot;:&quot;false&quot;,&quot;feedbackRatingStar&quot;:&quot;Green&quot;,&quot;sellerStoreName&quot;:&quot;orighthere&quot;,&quot;sellerStoreURL&quot;:&quot;http:\/\/stores.ebay.com\/orighthere&quot;},&quot;shippingInfo&quot;:{&quot;shippingType&quot;:&quot;Free&quot;,&quot;shipToLocations&quot;:[&quot;US&quot;],&quot;expeditedShipping&quot;:&quot;false&quot;,&quot;oneDayShippingAvailable&quot;:&quot;false&quot;,&quot;returnsAccepted&quot;:&quot;true&quot;,&quot;handlingTime&quot;:1}}"
+                            android:id="@+id/hidden4"
+                            android:visibility="gone" />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

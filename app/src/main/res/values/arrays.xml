@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="sortOptions">
+        <item>Best Match</item>
+        <item>Price: Highest first</item>
+        <item>Price+Shipping: Highest first</item>
+        <item>Price+Shipping: Lowest first</item>
+    </string-array>
+</resources>
