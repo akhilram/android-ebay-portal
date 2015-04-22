@@ -16,6 +16,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
@@ -53,12 +55,16 @@ public class SearchPage extends ActionBarActivity {
     public void clearForm(View view) {
         EditText keywords = (EditText)findViewById(R.id.keywordField);
         keywords.setText("");
+        keywords.setError(null);
         EditText pricestart = (EditText)findViewById(R.id.pricestartField);
         pricestart.setText("");
         EditText priceto = (EditText)findViewById(R.id.pricetoField);
         priceto.setText("");
+        priceto.setError(null);
         Spinner sort = (Spinner)findViewById(R.id.sortBySpinner);
         sort.setSelection(0);
+        TextView errorBox = (TextView) findViewById(R.id.erroBox);
+        errorBox.setVisibility(View.INVISIBLE);
     }
 
     //on-click method for search
@@ -69,9 +75,40 @@ public class SearchPage extends ActionBarActivity {
 
         EditText keywords = (EditText)findViewById(R.id.keywordField);
         String keyword = keywords.getText().toString();
+        String encodedKeyword = null;
+        try {
+            encodedKeyword = URLEncoder.encode(keyword, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        EditText pricestart = (EditText)findViewById(R.id.pricestartField);
+        EditText priceto = (EditText)findViewById(R.id.pricetoField);
+        Spinner sort = (Spinner)findViewById(R.id.sortBySpinner);
+        int sortBy = sort.getSelectedItemPosition();
+        String sortOption = null;
+        switch(sortBy) {
+            case 0:
+                sortOption = "BestMatch";
+                break;
+
+            case 1:
+                sortOption = "CurrentPriceHighest";
+                break;
+
+            case 2:
+                sortOption = "PricePlusShippingHighest";
+                break;
+
+            case 3:
+                sortOption = "PricePlusShippingLowest";
+                break;
+        }
 
         String url = "http://akhilram-cs571-webapp.elasticbeanstalk.com/search-ebay.php?keywords=" +
-                "harry+potter&sortOrder=BestMatch&entriesPerPage=5&MaxHandlingTime=&pageNum=1";
+                encodedKeyword + "&MinPrice="+ pricestart.getText().toString() + "&MaxPrice=" + priceto.getText().toString() +
+                "&sortOrder=" + sortOption + "&entriesPerPage=5&pageNum=1";
+
         AsyncTask<String, String, String> httpResponse = new RequestTask().execute(url);
         String httpOutput = null;
         JSONObject jsonObj = null;
@@ -90,6 +127,17 @@ public class SearchPage extends ActionBarActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        try {
+            String value = jsonObj.get("resultCount").toString();
+            if(jsonObj.get("resultCount").toString().equals("0")) {
+                noResultsFound();
+                return;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         Intent i = new Intent(this, Results.class);
         i.putExtra("jsonResult", jsonObj.toString());
         startActivity(i);
@@ -102,6 +150,26 @@ public class SearchPage extends ActionBarActivity {
             keywords.setError("Keywords is required!");
             return false;
         }
+
+        EditText from = (EditText)findViewById(R.id.pricestartField);
+        EditText to = (EditText)findViewById(R.id.pricetoField);
+
+        String temp = to.getText().toString();
+
+        if(to.getText().toString().equals("") || from.getText().toString().equals(""))
+            return true;
+
+        if(Float.parseFloat(from.getText().toString()) > Float.parseFloat(to.getText().toString())) {
+            to.setError("From price cannot be greater");
+            return false;
+        }
+
         return true;
     }
+
+    public void noResultsFound() {
+        TextView errorBox = (TextView) findViewById(R.id.erroBox);
+        errorBox.setVisibility(View.VISIBLE);
+    }
+
 }

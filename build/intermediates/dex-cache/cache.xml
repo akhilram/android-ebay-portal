@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
+        jar="/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.0.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c77459e87ab68135c1462deb02d9e9b78967d339">
+        <dex dex="/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/pre-dexed/debug/classes-46a33036076a563b3b5828bce9351f8bb7c65498.jar" />
+    </item>
+    <item
         jar="/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
         <dex dex="/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/pre-dexed/debug/classes-b2c1b15226dcc875941e199561101399681b102c.jar" />
+    </item>
+    <item
+        jar="/Users/akhil/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-791910ea8b48e276bde4d28a5e1550391ac979c5.jar" />
     </item>
     <item
         jar="/Users/akhil/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"

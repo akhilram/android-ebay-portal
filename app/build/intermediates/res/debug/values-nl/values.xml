@@ -18,4 +18,7 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Delen met"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Delen met %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Samenvouwen"</string>
+    <!-- From: file:/Users/akhil/Academics/Course/4.CS571/Homeworks/hw9/eBayAndroid/EbayShopping/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.0.1/res/values-nl/values.xml -->
+    <eat-comment/>
+    <string name="messenger_send_button_text">Verzenden</string>
 </resources>

@@ -57,7 +57,7 @@
         <EditText
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/pricestartField"
             android:layout_alignBottom="@+id/pricestartStatic"
@@ -81,7 +81,7 @@
         <EditText
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/pricetoField"
             android:layout_alignBottom="@+id/pricetoStatic"
@@ -110,7 +110,7 @@
             android:layout_alignTop="@+id/sortByStatic"
             android:layout_alignLeft="@+id/pricetoField"
             android:layout_alignStart="@+id/pricetoField"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="7dp"
             android:layout_marginRight="20dp" />
 
         <Button
@@ -138,6 +138,19 @@
             android:layout_marginLeft="10dp"
             android:background="#ffd9d9d9"
             android:onClick="clearForm" />
+
+        <TextView
+            android:layout_width="153dp"
+            android:layout_height="24dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="No products found"
+            android:id="@+id/erroBox"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/nores"
+            android:textColor="#ffffffff"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

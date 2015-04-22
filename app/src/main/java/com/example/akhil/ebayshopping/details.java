@@ -1,34 +1,91 @@
 package com.example.akhil.ebayshopping;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareButton;
+import com.facebook.share.widget.ShareDialog;
+
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Pattern;
+
 
 public class details extends ActionBarActivity {
+
+    CallbackManager callbackManager;
+    ShareDialog shareDialog;
+    static JSONObject basic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
+//        LoginManager.getInstance().registerCallback(callbackManager,
+//                new FacebookCallback<LoginResult>() {
+//                    @Override
+//                    public void onSuccess(LoginResult loginResult) {
+//                        // App code
+//                    }
+//
+//                    @Override
+//                    public void onCancel() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(FacebookException error) {
+//
+//                    }
+//
+//
+//                });
+
+
         JSONObject itemJSON = null;
         try {
 
             itemJSON = new JSONObject(getIntent().getStringExtra("item"));
             JSONObject basicInfo = itemJSON.getJSONObject("basicInfo");
-
+            basic = itemJSON.getJSONObject("basicInfo");
+            JSONObject sellerInfo = itemJSON.getJSONObject("sellerInfo");
+            JSONObject shippingInfo = itemJSON.getJSONObject("shippingInfo");
             ImageView i = (ImageView)findViewById(R.id.headerImage);
-            String imageUrl = basicInfo.getString("galleryURL");
+            String imageUrl = "";
+
+            if(basicInfo.getString("pictureURLSuperSize").isEmpty() || basicInfo.getString("pictureURLSuperSize") == null) {
+                imageUrl = basicInfo.getString("galleryURL");
+            }
+            else {
+                imageUrl = basicInfo.getString("pictureURLSuperSize");
+            }
             new ImageLoadTask(imageUrl, i).execute();
 
             TextView title = (TextView) findViewById(R.id.title);
@@ -53,6 +110,7 @@ public class details extends ActionBarActivity {
                 top.setVisibility(View.INVISIBLE);
             }
 
+
             TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
             tabHost.setup();
 
@@ -73,6 +131,7 @@ public class details extends ActionBarActivity {
             tabHost.addTab(tab2);
             tabHost.addTab(tab3);
 
+            //basic info tab
             TextView category = (TextView) findViewById(R.id.categoryField);
             category.setText(basicInfo.getString("categoryName"));
             TextView condition = (TextView) findViewById(R.id.conditionField);
@@ -80,9 +139,65 @@ public class details extends ActionBarActivity {
             TextView buyingFormat = (TextView) findViewById(R.id.buyingFormatField);
             buyingFormat.setText(basicInfo.getString("listingType"));
 
+            //seller info tab
+            TextView userName = (TextView) findViewById(R.id.userNameField);
+            userName.setText(sellerInfo.getString("sellerUserName"));
+            TextView feedbackScore = (TextView) findViewById(R.id.feedbackScoreField);
+            feedbackScore.setText(sellerInfo.getString("feedbackScore"));
+            TextView positiveFeedback = (TextView) findViewById(R.id.positiveFeedbackField);
+            positiveFeedback.setText(sellerInfo.getString("positiveFeedbackPercent"));
+            TextView feedbackRating = (TextView) findViewById(R.id.feedbackRatingField);
+            feedbackRating.setText(sellerInfo.getString("feedbackRatingStar"));
             ImageView topRated = (ImageView)findViewById(R.id.topRatedField);
-//            int topRatedImage = getResources().getIdentifier("com.example.akhil.ebayshopping:drawable/ok.png", null, null);
-            topRated.setImageResource(R.drawable.ok);
+            if(sellerInfo.getString("topRatedSeller").equals("true")) {
+                topRated.setImageResource(R.drawable.ok);
+            }
+            else {
+                topRated.setImageResource(R.drawable.cancel);
+            }
+            TextView store = (TextView) findViewById(R.id.storeField);
+            store.setText(sellerInfo.getString("sellerStoreName"));
+
+            //shipping info tab
+            TextView shippingType = (TextView) findViewById(R.id.shippingTypeField);
+            String shippingTypes = shippingInfo.getString("shippingType");
+            shippingTypes = splitCamelCase(shippingTypes);
+            shippingType.setText(shippingTypes);
+            TextView handlingTime = (TextView) findViewById(R.id.handlingTimeField);
+            handlingTime.setText(shippingInfo.getString("handlingTime"));
+
+            TextView shippingLocations = (TextView) findViewById(R.id.shippingLocationsField);
+            JSONArray shippingLocArray = (JSONArray) shippingInfo.get("shipToLocations");
+            StringBuilder shippingLocText = new StringBuilder("");
+            for(int j=0; j<shippingLocArray.length(); j++) {
+                shippingLocText.append(shippingLocArray.get(j).toString() + ", ");
+            }
+            shippingLocText.substring(0, shippingLocText.length()-2);
+            shippingLocations.setText(shippingLocText.substring(0, shippingLocText.length() - 2));
+
+            ImageView expeditedShipping = (ImageView)findViewById(R.id.expeditedShippingField);
+            if(shippingInfo.getString("expeditedShipping").equals("true")) {
+                expeditedShipping.setImageResource(R.drawable.ok);
+            }
+            else {
+                expeditedShipping.setImageResource(R.drawable.cancel);
+            }
+            ImageView oneDayShipping = (ImageView)findViewById(R.id.oneDayShippingField);
+            if(shippingInfo.getString("oneDayShippingAvailable").equals("true")) {
+                oneDayShipping.setImageResource(R.drawable.ok);
+            }
+            else {
+                oneDayShipping.setImageResource(R.drawable.cancel);
+            }
+            ImageView returnsAccepted = (ImageView)findViewById(R.id.returnsAcceptedField);
+            if(shippingInfo.getString("returnsAccepted").equals("true")) {
+                returnsAccepted.setImageResource(R.drawable.ok);
+            }
+            else {
+                returnsAccepted.setImageResource(R.drawable.cancel);
+            }
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -112,4 +227,65 @@ public class details extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //on-click event for buy now
+    public void buyNow(View view) {
+        String itemURL = null;
+        try {
+            itemURL = basic.getString("viewItemURL");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(itemURL));
+        startActivity(viewIntent);
+    }
+
+
+
+    //on-click event for fb share
+    public void postToFB(View view) {
+
+
+
+
+//        if (ShareDialog.canShow(ShareLinkContent.class)) {
+//            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+//                    .setContentTitle("Hello Facebook")
+//                    .setContentDescription(
+//                            "The 'Hello Facebook' sample  showcases simple Facebook integration")
+//                    .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+//                    .build();
+//
+//            shareDialog.show(linkContent);
+
+//            ShareLinkContent content = new ShareLinkContent.Builder()
+//                    .setContentUrl(Uri.parse("https://developers.facebook.com"))
+//                    .build();
+//
+//            shareDialog.show(content);
+
+
+//        }
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public String splitCamelCase(String s) {
+        return s.replaceAll(
+                String.format("%s|%s|%s",
+                        "(?<=[A-Z])(?=[A-Z][a-z])",
+                        "(?<=[^A-Z])(?=[A-Z])",
+                        "(?<=[A-Za-z])(?=[^A-Za-z])"
+                ),
+                ", "
+        );
+    }
+
 }
+

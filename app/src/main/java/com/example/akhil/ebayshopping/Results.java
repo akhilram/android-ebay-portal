@@ -120,10 +120,21 @@ public class Results extends ActionBarActivity {
 
     //on-click event for image
     public void openWebPage(View view) {
+        int viewId = view.getId();
 
-//        Uri.parse("http://www.stackoverflow.com/");
-        Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.stackoverflow.com/"));
-        startActivity(viewIntent);
+        String hiddenIdString = "hidden" + view.getResources().getResourceName(viewId).charAt(39);
+        TextView hiddenView = (TextView)findViewById(getResources().getIdentifier(hiddenIdString, "id", "com.example.akhil.ebayshopping"));
+
+        JSONObject hiddenObj = null;
+
+        try {
+            hiddenObj = new JSONObject(hiddenView.getText().toString());
+            String itemURL = ((JSONObject)hiddenObj.get("basicInfo")).getString("viewItemURL");
+            Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(itemURL));
+            startActivity(viewIntent);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
-
 }

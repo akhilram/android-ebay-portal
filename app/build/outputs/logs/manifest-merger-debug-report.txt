@@ -21,6 +21,8 @@ application
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:appcompat-v7:22.0.0:22:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
+MERGED from com.facebook.android:facebook:4.0.1:28:5
+MERGED from com.android.support:support-v4:22.0.0:22:5
 	android:label
 		ADDED from AndroidManifest.xml:10:9
 	android:allowBackup
@@ -57,9 +59,35 @@ ADDED from AndroidManifest.xml:25:9
 		ADDED from AndroidManifest.xml:27:13
 	android:name
 		ADDED from AndroidManifest.xml:26:13
+activity#com.facebook.FacebookActivity
+ADDED from AndroidManifest.xml:30:9
+	android:label
+		ADDED from AndroidManifest.xml:34:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:31:13
+	android:theme
+		ADDED from AndroidManifest.xml:33:13
+	android:name
+		ADDED from AndroidManifest.xml:30:19
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from AndroidManifest.xml:40:5
+	android:value
+		ADDED from AndroidManifest.xml:40:62
+	android:name
+		ADDED from AndroidManifest.xml:40:16
+provider#com.facebook.FacebookContentProvider
+ADDED from AndroidManifest.xml:44:5
+	android:authorities
+		ADDED from AndroidManifest.xml:44:15
+	android:exported
+		ADDED from AndroidManifest.xml:46:9
+	android:name
+		ADDED from AndroidManifest.xml:45:9
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5
+MERGED from com.android.support:support-v4:22.0.0:20:5
+MERGED from com.facebook.android:facebook:4.0.1:24:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
