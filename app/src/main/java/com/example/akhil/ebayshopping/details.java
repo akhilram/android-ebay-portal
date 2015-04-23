@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -22,6 +23,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
@@ -48,25 +50,32 @@ public class details extends ActionBarActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
-//        LoginManager.getInstance().registerCallback(callbackManager,
-//                new FacebookCallback<LoginResult>() {
-//                    @Override
-//                    public void onSuccess(LoginResult loginResult) {
-//                        // App code
-//                    }
-//
-//                    @Override
-//                    public void onCancel() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(FacebookException error) {
-//
-//                    }
-//
-//
-//                });
+        shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
+
+            @Override
+            public void onSuccess(Sharer.Result result) {
+                if(result.getPostId() == null) {
+                    Toast.makeText(getBaseContext(), "Post cancelled", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getBaseContext(), "Posted Story, ID:" + result.getPostId(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                // Log.d(TAG, "error");
+                Toast.makeText(getBaseContext(), "Posting failed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel() {
+                //Log.d(TAG, "cancel");
+                Toast.makeText(getBaseContext(), "Post Cancelled", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         JSONObject itemJSON = null;
@@ -156,7 +165,10 @@ public class details extends ActionBarActivity {
                 topRated.setImageResource(R.drawable.cancel);
             }
             TextView store = (TextView) findViewById(R.id.storeField);
-            store.setText(sellerInfo.getString("sellerStoreName"));
+            if(sellerInfo.getString("sellerStoreName").isEmpty())
+                store.setText("N/A");
+            else
+                store.setText(sellerInfo.getString("sellerStoreName"));
 
             //shipping info tab
             TextView shippingType = (TextView) findViewById(R.id.shippingTypeField);
@@ -245,18 +257,26 @@ public class details extends ActionBarActivity {
     //on-click event for fb share
     public void postToFB(View view) {
 
+//        Toast.makeText(getBaseContext(), "Posted Story on Timeline", Toast.LENGTH_SHORT).show();
 
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            ShareLinkContent linkContent = null;
+            try {
+                linkContent = new ShareLinkContent.Builder()
+                        .setContentTitle(basic.getString("title"))
+                        .setContentUrl(Uri.parse(basic.getString("viewItemURL")))
+                        .setContentDescription(
+                                    ((TextView) findViewById(R.id.price)).getText().toString() + "\n" +
+                                    ((TextView) findViewById(R.id.shippingInfo)).getText().toString()
+                                )
+                        .setImageUrl(Uri.parse(basic.getString("galleryURL")))
+                        .build();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-
-//        if (ShareDialog.canShow(ShareLinkContent.class)) {
-//            ShareLinkContent linkContent = new ShareLinkContent.Builder()
-//                    .setContentTitle("Hello Facebook")
-//                    .setContentDescription(
-//                            "The 'Hello Facebook' sample  showcases simple Facebook integration")
-//                    .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
-//                    .build();
-//
-//            shareDialog.show(linkContent);
+//            if(linkContent != null)
+                shareDialog.show(linkContent);
 
 //            ShareLinkContent content = new ShareLinkContent.Builder()
 //                    .setContentUrl(Uri.parse("https://developers.facebook.com"))
@@ -265,9 +285,7 @@ public class details extends ActionBarActivity {
 //            shareDialog.show(content);
 
 
-//        }
-
-
+        }
     }
 
     @Override
