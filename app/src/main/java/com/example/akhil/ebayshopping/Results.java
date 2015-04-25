@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -32,7 +33,14 @@ public class Results extends ActionBarActivity {
         JSONObject resultJSON = null;
         try {
             resultJSON = new JSONObject(getIntent().getStringExtra("jsonResult"));
-
+            int resultCount = Integer.parseInt(resultJSON.getString("resultCount"));
+            if(resultCount < 5){
+                while(resultCount<5) {
+                    int rowId = getResources().getIdentifier("item" + Integer.toString(resultCount), "id", "com.example.akhil.ebayshopping");
+                    ((TableRow) findViewById(rowId)).setVisibility(View.GONE);
+                    resultCount++;
+                }
+            }
 
             TextView header = (TextView)findViewById(R.id.resultHeader);
             header.setText("Results for '" + resultJSON.get("keyword") + "'");

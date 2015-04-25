@@ -144,19 +144,38 @@ public class details extends ActionBarActivity {
             TextView category = (TextView) findViewById(R.id.categoryField);
             category.setText(basicInfo.getString("categoryName"));
             TextView condition = (TextView) findViewById(R.id.conditionField);
-            condition.setText(basicInfo.getString("conditionDisplayName"));
+            if(basicInfo.getString("conditionDisplayName").isEmpty())
+                condition.setText("N/A");
+            else
+                condition.setText(basicInfo.getString("conditionDisplayName"));
             TextView buyingFormat = (TextView) findViewById(R.id.buyingFormatField);
-            buyingFormat.setText(basicInfo.getString("listingType"));
+            if(basicInfo.getString("listingType").isEmpty())
+                buyingFormat.setText("N/A");
+            else
+                buyingFormat.setText(basicInfo.getString("listingType"));
 
             //seller info tab
             TextView userName = (TextView) findViewById(R.id.userNameField);
-            userName.setText(sellerInfo.getString("sellerUserName"));
+            if(sellerInfo.getString("sellerUserName").isEmpty())
+                userName.setText("N/A");
+            else
+                userName.setText(sellerInfo.getString("sellerUserName"));
             TextView feedbackScore = (TextView) findViewById(R.id.feedbackScoreField);
-            feedbackScore.setText(sellerInfo.getString("feedbackScore"));
+            if(sellerInfo.getString("feedbackScore").isEmpty())
+                feedbackScore.setText("N/A");
+            else
+                feedbackScore.setText(sellerInfo.getString("feedbackScore"));
+
             TextView positiveFeedback = (TextView) findViewById(R.id.positiveFeedbackField);
-            positiveFeedback.setText(sellerInfo.getString("positiveFeedbackPercent"));
+            if(sellerInfo.getString("positiveFeedbackPercent").isEmpty())
+                positiveFeedback.setText("N/A");
+            else
+                positiveFeedback.setText(sellerInfo.getString("positiveFeedbackPercent"));
             TextView feedbackRating = (TextView) findViewById(R.id.feedbackRatingField);
-            feedbackRating.setText(sellerInfo.getString("feedbackRatingStar"));
+            if(sellerInfo.getString("feedbackRatingStar").isEmpty())
+                feedbackRating.setText("N/A");
+            else
+                feedbackRating.setText(sellerInfo.getString("feedbackRatingStar"));
             ImageView topRated = (ImageView)findViewById(R.id.topRatedField);
             if(sellerInfo.getString("topRatedSeller").equals("true")) {
                 topRated.setImageResource(R.drawable.ok);
@@ -174,7 +193,11 @@ public class details extends ActionBarActivity {
             TextView shippingType = (TextView) findViewById(R.id.shippingTypeField);
             String shippingTypes = shippingInfo.getString("shippingType");
             shippingTypes = splitCamelCase(shippingTypes);
-            shippingType.setText(shippingTypes);
+            if(shippingTypes.isEmpty())
+                shippingType.setText("N/A");
+            else
+                shippingType.setText(shippingTypes);
+
             TextView handlingTime = (TextView) findViewById(R.id.handlingTimeField);
             handlingTime.setText(shippingInfo.getString("handlingTime"));
 
@@ -184,9 +207,10 @@ public class details extends ActionBarActivity {
             for(int j=0; j<shippingLocArray.length(); j++) {
                 shippingLocText.append(shippingLocArray.get(j).toString() + ", ");
             }
-            shippingLocText.substring(0, shippingLocText.length()-2);
-            shippingLocations.setText(shippingLocText.substring(0, shippingLocText.length() - 2));
-
+            if(shippingTypes.toString().isEmpty())
+                shippingType.setText("N/A");
+            else
+                shippingLocations.setText(shippingLocText.substring(0, shippingLocText.length() - 2));
             ImageView expeditedShipping = (ImageView)findViewById(R.id.expeditedShippingField);
             if(shippingInfo.getString("expeditedShipping").equals("true")) {
                 expeditedShipping.setImageResource(R.drawable.ok);

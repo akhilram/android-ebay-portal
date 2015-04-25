@@ -72,7 +72,8 @@ public class SearchPage extends ActionBarActivity {
         boolean status = validateForm();
         if(!status)
             return;
-
+        TextView errorBox = (TextView) findViewById(R.id.erroBox);
+        errorBox.setVisibility(View.INVISIBLE);
         EditText keywords = (EditText)findViewById(R.id.keywordField);
         String keyword = keywords.getText().toString();
         String encodedKeyword = null;

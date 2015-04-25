@@ -28,7 +28,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#fff6f6f6"
                 android:id="@+id/item0">
@@ -49,12 +49,12 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp" >
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
@@ -65,21 +65,23 @@
                             android:id="@+id/title0"
                             android:textColor="#ff0064c8"
                             android:clickable="true"
-                            android:onClick="gotDetails" />
+                            android:onClick="gotDetails"
+                            android:minHeight="60dp" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Small Text"
                             android:id="@+id/price0"
-                            android:textIsSelectable="false" />
+                            android:textIsSelectable="false"
+                            android:minHeight="40dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -94,7 +96,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/item1"
                 android:layout_marginTop="10dp"
@@ -103,11 +105,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="100dp"
                         android:id="@+id/image1"
                         android:onClick="openWebPage" />
                 </LinearLayout>
@@ -120,7 +122,7 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal">
 
                         <TextView
@@ -132,20 +134,22 @@
                             android:textColor="#ff0064c8"
                             android:nestedScrollingEnabled="false"
                             android:clickable="true"
-                            android:onClick="gotDetails" />
+                            android:onClick="gotDetails"
+                            android:minHeight="60dp" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Small Text"
-                            android:id="@+id/price1" />
+                            android:id="@+id/price1"
+                            android:minHeight="40dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -160,7 +164,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#fff6f6f6"
                 android:id="@+id/item2"
@@ -169,11 +173,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent" >
+                    android:layout_height="wrap_content" >
 
                     <ImageView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="100dp"
                         android:id="@+id/image2"
                         android:onClick="openWebPage" />
                 </LinearLayout>
@@ -181,36 +185,39 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp" >
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Large Text"
                             android:id="@+id/title2"
                             android:textColor="#ff0064c8"
                             android:onClick="gotDetails"
-                            android:clickable="true" />
+                            android:clickable="true"
+                            android:minHeight="60dp" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_horizontal" >
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:minHeight="40dp">
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Small Text"
-                            android:id="@+id/price2" />
+                            android:id="@+id/price2"
+                            android:minHeight="40dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -225,7 +232,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/item3"
                 android:layout_marginTop="10dp"
@@ -234,11 +241,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent" >
+                    android:layout_height="wrap_content" >
 
                     <ImageView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="100dp"
                         android:id="@+id/image3"
                         android:onClick="openWebPage" />
                 </LinearLayout>
@@ -246,36 +253,39 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp" >
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Large Text"
                             android:id="@+id/title3"
                             android:textColor="#ff0064c8"
                             android:onClick="gotDetails"
-                            android:clickable="true" />
+                            android:clickable="true"
+                            android:minHeight="60dp" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_horizontal" >
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:minHeight="40dp">
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Small Text"
-                            android:id="@+id/price3" />
+                            android:id="@+id/price3"
+                            android:minHeight="40dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -290,7 +300,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#fff6f6f6"
                 android:id="@+id/item4"
@@ -299,11 +309,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent" >
+                    android:layout_height="wrap_content" >
 
                     <ImageView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="100dp"
                         android:id="@+id/image4"
                         android:onClick="openWebPage" />
                 </LinearLayout>
@@ -311,36 +321,38 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp" >
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Large Text"
                             android:id="@+id/title4"
                             android:textColor="#ff0064c8"
                             android:onClick="gotDetails"
-                            android:clickable="true" />
+                            android:clickable="true"
+                            android:minHeight="60dp" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal" >
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Small Text"
-                            android:id="@+id/price4" />
+                            android:id="@+id/price4"
+                            android:minHeight="40dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
